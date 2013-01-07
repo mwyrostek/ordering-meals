@@ -1,0 +1,5 @@
+= form_for @order do |f|
+  = select_tag(:restaurant_id, options_for_select(@restaurants_array), :include_blank => true)
+  = f.select(:item_id, "")
+  = f.submit
+  = link_to 'new item', '#', :id => 'add_item'

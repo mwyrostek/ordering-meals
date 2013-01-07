@@ -1,0 +1,9 @@
+%h2 Tanie wpierdalanie
+%p U nas tanio zjesz :p
+- @orders.each do |order|
+  %p="#{order.restaurant_name}: #{order.item_name} - #{order.item_price} zł"
+  %p=order.user.email
+  =link_to "delete", order_path(order), :confirm => 'Jesteś pewny kurwa?', :method => :delete
+  =link_to "show", order_path(order)
+  %hr/
+=link_to "dodaj", new_order_path 
