@@ -14,9 +14,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     respond_with(@item)
-
-
-    
   end
 
 end

@@ -1,4 +1,5 @@
-= form_for @item do |f|
+= form_for @item, :remote => true do |f|
+  = f.hidden_field :restaurant_id, :as => :hidden
   = f.label :name
   = f.text_field(:name)
   = f.label :price
