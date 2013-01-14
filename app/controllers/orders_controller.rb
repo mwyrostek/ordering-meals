@@ -1,6 +1,10 @@
+#encoding: utf-8
+
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all
+  before_filter :authenticate_user!, :except => [:index, :show]
+  def index 
+    @orders = Order.with_date params[:date]
+    render :layout => false if params[:date]
   end
 
   def new
@@ -19,14 +23,19 @@ class OrdersController < ApplicationController
       flash[:notice] = "Zapisano poprawnie"
       redirect_to orders_path
     else
-      flash[:alert] = "Error"
+      flash[:alert] = @order.errors.messages
       redirect_to new_order_path
     end    
   end
 
   def destroy
     @order = Order.find params[:id]
-    @order.destroy
+    if @order.user == current_user
+      @order.destroy
+      flash[:notice] = "Usunięto poprawnie"
+    else
+      flash[:alert] = "nie mozesz usunąć nie swojego zamówienia"
+    end      
     redirect_to orders_path
   end  
 

@@ -1,7 +1,14 @@
 body {
   background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
+  font-family: Arial, Helvetica, Arial;
   font-size: 14px;
+  line-height: normal;
+}
+
+h1, h2, h3{
+  margin: 0px;
+  line-height: normal;
+  padding-bottom: 10px;
 }
 
 a img {
@@ -10,6 +17,7 @@ a img {
 
 a {
   color: #0000FF;
+  outline: none;
 }
 
 .clear {
@@ -17,14 +25,34 @@ a {
   height: 0;
   overflow: hidden;
 }
+.left{
+  float: left;
+}
+.right{
+  float: right
+}
 
+header{
+  background-color: #FFFFFF;
+  border: 1px solid #4A49A6;
+  border-radius: 10px 10px 10px 10px;
+  margin: 20px auto 0;
+  overflow: hidden;
+  padding: 20px;
+  width: 960px;
+
+}
 #container {
-  width: 75%;
+  width: 960px;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
+  border: solid 1px #4A49A6;
   margin-top: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
 }
 
 #flash_notice, #flash_error, #flash_alert {
@@ -73,3 +101,86 @@ a {
 .error_messages ul {
   margin: 0;
 }
+.buttons{
+  background: none repeat scroll 0 0 #4B7399;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  text-decoration: none;
+  border:1px #91BAE0 solid;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  line-height: normal;
+}
+.buttons:hover{
+  background: none repeat scroll 0 0 #fff;
+  color: #4B7399; 
+  background:#91BAE0;
+  color: #4A49A6;
+}
+
+.orders{
+  background: none repeat scroll 0 0 #91BAE0;
+  border: 1px solid #4A49A6;
+  box-shadow: 2px 1px 3px #4B7399;
+  color: #4A49A6;
+  float: left;
+  margin: 10px 0;
+  padding: 10px;
+  width: 938px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.header p{
+  color:#7149A6;
+}
+.orders .inputs{
+ float: left;
+ width: 5%; 
+ margin-top:8px;
+ cursor: pointer;
+}
+.orders p{
+margin: 0px;
+line-height: 30px;
+}
+.orders .restauran_name{
+  float: left;
+  width: 20%;
+}
+.orders .item_name{
+  float: left;
+  width: 20%;
+}
+.orders .item_price{
+  float: left;
+  width: 20%;
+}
+.orders .user_email{
+  float: left;
+  width: 20%;
+}
+.actions{
+  float: left;
+  width: 15%; 
+}
+.actions a{
+float: right
+}
+.actions a.buttons:hover{
+background:#fff;
+}
+.header .actions{
+  text-align: center
+}
+
+.datepicker{
+  min-height: 100px;
+}
+/*
+
+.datepicker .prev {
+   background: url("arrow_bidirectional.png") no-repeat scroll 0 0 transparent !important;
+}
+*/

@@ -38,6 +38,20 @@ $(document).ready(function() {
   $('#new_item').on('ajax:success', 'form', function(evt, element) {
     $('#order_item_id').append("<option selected='selected' value="+ element.id+">"+element.name+ " - " + element.price +"zł </option>");
   });
+ 
+  $('#new_item').on('ajax:error', 'form', function(evt, element) {
+    var errors = JSON.parse(element.responseText).errors;
+    // console.log(errors);
+    var message= ""
+    $.each(errors, function(key, element){
+      message += (key + ": ");
+        $.each(element, function(number, el){
+          message += el + ", "
+        });
+      message += "\n"
+    });
+    alert(message);
+  });  
 
 });
 

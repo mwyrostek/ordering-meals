@@ -8,7 +8,15 @@
     <%= yield(:head) %>
   </head>
   <body>
+  <header>    
+    <h1>Tanie wpierdalanie</h1>
+    <h2> U nas szybko zamówisz i tanio zjesz :p</h2>
+  </header>    
     <div id="container">
+    <%- if params[:controller] == 'orders' && params[:action] == "index" %>
+      <div id='datepicker'></div>
+    <% end %>
+
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>

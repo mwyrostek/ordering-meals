@@ -1,9 +1,20 @@
-%h2 Tanie wpierdalanie
-%p U nas tanio zjesz :p
-- @orders.each do |order|
-  %p="#{order.restaurant_name}: #{order.item_name} - #{order.item_price} zł"
-  %p=order.user.email
-  =link_to "delete", order_path(order), :confirm => 'Jesteś pewny kurwa?', :method => :delete
-  =link_to "show", order_path(order)
-  %hr/
-=link_to "dodaj", new_order_path 
+.orders_content
+  .orders.header
+    %input{:name => "active_all", :type => "checkbox", :class => 'inputs select_all', :value => "active_all"}/   
+    %p.restauran_name Nazwa:
+    %p.item_name Danie:
+    %p.item_price Cena:
+    %p.user_email Zamawiający:
+    %p.actions Acje:
+  - @orders.each do |order|
+    .orders
+      %input{:name => "active", :type => "checkbox", :class => "inputs order_#{order.id}", :value => order.id}/      
+      %p.restauran_name=order.restaurant_name
+      %p.item_name=order.item_name
+      %p.item_price="#{order.item_price} zł"
+      %p.user_email=order.user.email
+      %p.actions
+        =link_to "delete", order_path(order), :confirm => 'Jesteś pewny kurwa?', :method => :delete, :class => 'buttons'
+        =link_to "show", order_path(order), :class => 'buttons' 
+  =link_to "dzwonione", '#', :id => 'add_active', :class => 'buttons left'         
+  =link_to "zamów", new_order_path, :class => 'buttons right' 
